@@ -6,8 +6,10 @@ A játék megoldása az, hogy ezt a kilenc képet úgy helyezzük el egy 3×3-as
 
 1. Játék: 
   A betöltött kártyákat a board-ra helyezve és forgatva kell a megfelelő sorrendben helyezni.
+  
 2. Kártyák keverése:
   A kártyák sorrendjét és forgatási állapotukat véletlenszerűen rendezi.
+  
 3.Automatikus megoldás: 
   Egy backtracking algoritmus elkészíti a megoldást és visszaadja a kártyákat a helyes sorrendben, forgatási állapottal és animáltan a boardra helyezi őket.
 
