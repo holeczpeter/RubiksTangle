@@ -1,0 +1,63 @@
+<div class="flex-container">
+  <div>
+    <button mat-stroked-button
+            (click)="refresh()">
+      Kártya keverés
+    </button>
+  </div>
+  <div>
+    <button mat-stroked-button
+            [disabled]="!isActive()"
+            (click)="getSolutionSteps()">
+      Automatikus megoldás
+    </button>
+  </div>
+</div>
+
+<div class="content" cdkDropListGroup>
+  <div #board class="board">
+    <mat-grid-list cols="3" gutterSize="1">
+      <mat-grid-tile *ngFor="let result of results; let i = index">
+        <div class="cell"
+             cdkDropList
+             [cdkDropListData]="result"
+             (cdkDropListDropped)="drop($event)"
+             [style.background]="i == indexOver ? 'red' : 'yellowgreen'"
+             (mouseover)="this.indexOver = i"
+             (mouseout)="indexOver = -1">
+          <div cdkDrag [cdkDragDisabled]="!isActive()" class="container-content">
+            <img *cdkDragPreview [src]="result.src">
+            <img *ngIf="result && result.src"
+                 [@rotatedState]="result.state"
+                 [src]="result.src" />
+            <button mat-icon-button
+                    class="btn"
+                    *ngIf="result && result.src"
+                    (click)="rotationService.rotate(result)">
+              <mat-icon>redo</mat-icon>
+            </button>
+            <span *ngIf="!result || !result.src"></span>
+            <div *cdkDragPlaceholder></div>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="side">
+    <mat-grid-list cols="3" gutterSize="0">
+      <mat-grid-tile *ngFor="let picture of pictures; let i = index">
+        <div class="cell"
+             cdkDropList
+             [cdkDropListData]="picture"
+             (cdkDropListDropped)="drop($event)">
+          <div cdkDrag  [cdkDragDisabled]="!isActive()" class="container-content">
+            <img *cdkDragPreview [@rotatedState]="picture.state" [src]="picture.src">
+            <img [src]="picture.src" [@rotatedState]="picture.state" *ngIf="picture && picture.src" />
+            <span *ngIf="!picture || !picture.src"></span>
+            <div *cdkDragPlaceholder></div>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

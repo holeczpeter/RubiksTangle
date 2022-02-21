@@ -1,0 +1,51 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import "~node_modules/bootstrap/scss/bootstrap.scss";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.footer {
+  padding-top: 20px;
+}
+
+.footer p {
+  color: #7c7c7c;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "montserratregular",Arial,sans-serif;
+}
+
+.footer a {
+  color: #7c7c7c;
+  text-decoration: none;
+}
+
+.mat-simple-snackbar-action > button {
+  color: white;
+  text-decoration-color: white;
+}
+
+.success {
+  background-color: #388e3c;
+}
+
+.notSuccess {
+  background-color: #bf360c;
+}
